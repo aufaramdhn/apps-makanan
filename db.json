@@ -1,0 +1,8 @@
+{
+    "users": [{
+        "id": 1,
+        "name": "Aufa Ramadhan",
+        "email": "exampleemail@gmail.com",
+        "caption": "Front End Developer"
+    }]
+  }
