@@ -1,8 +1,146 @@
 {
-    "users": [{
-        "id": 1,
-        "name": "Aufa Ramadhan",
-        "email": "exampleemail@gmail.com",
-        "caption": "Front End Developer"
-    }]
-  }
+  "categories": [
+    {
+      "id": 1,
+      "name": "All",
+      "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Pizza",
+      "image": "https://images.unsplash.com/photo-1628840045720-3a800b89d353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Burger",
+      "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Kebab",
+      "image": "https://images.unsplash.com/photo-1514843319620-4f042827c481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Chicken",
+      "image": "https://images.unsplash.com/photo-1626082929543-5bab0f090c42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 6,
+      "name": "Drink",
+      "image": "https://images.unsplash.com/photo-1506802913710-40e2e66339c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGp1aWNlJTIwcG5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    }
+  ],
+  "food": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "price": "$4.00",
+      "quantity": 1,
+      "categorie": 1,
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Pizza",
+      "price": "$6.00",
+      "quantity": 1,
+      "categorie": 2,
+      "image": "https://images.unsplash.com/photo-1544882907-b914cebddbf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Kebab",
+      "price": "$5.00",
+      "quantity": 1,
+      "categorie": 3,
+      "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=854&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Chicken",
+      "price": "$2.00",
+      "quantity": 1,
+      "categorie": 4,
+      "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Cheese Pizza",
+      "price": "$8.00",
+      "quantity": 1,
+      "categorie": 5,
+      "image": "https://images.unsplash.com/photo-1604917877934-07d8d248d396?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2hlZXNlJTIwcGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+    },
+    {
+      "id": 6,
+      "name": "Apple Juice",
+      "price": "$5.00",
+      "quantity": 1,
+      "categorie": 6,
+      "image": "https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "email": "exampleemail@gmail.com",
+      "password": "123456789",
+      "confirm": "123456789"
+    },
+    {
+      "email": "awds",
+      "password": "awds",
+      "id": 2
+    },
+    {
+      "email": "asdw",
+      "password": "asdwa",
+      "id": 3
+    },
+    {
+      "email": "asdwaasdwa",
+      "password": "asdwa",
+      "id": 4
+    },
+    {
+      "email": "asdas",
+      "password": "asdw",
+      "id": 5
+    },
+    {
+      "email": "asdwa",
+      "password": "asdwa",
+      "id": 6
+    },
+    {
+      "email": "asdwa",
+      "password": "asdwa",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "name": "Aufa Ramadhan",
+      "email": "exampleemail@gmail.com",
+      "bidang": "Front End Developer",
+      "id": 1
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "price": "$4.00",
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    }
+  ],
+  "whislist": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "price": "$4.00",
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    }
+  ]
+}
