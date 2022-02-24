@@ -13,47 +13,26 @@ import Icon from 'react-native-remix-icon';
 import COLORS from '../constants/Colors';
 import Axios from 'axios';
 
-const Profile = ({name, email, bidang, onPress}) => {
+const Profile = ({name, email, bidang, onPress, image}) => {
   return (
     <View style={styles.containerProfile}>
       <View style={styles.profile}>
         <TouchableOpacity onPress={onPress}>
           <Image
             source={{
-              uri: `https://i.pinimg.com/550x/5b/b1/09/5bb109cbbaf919b7d50dd27c5532aa91.jpg`,
+              uri: image,
             }}
             style={styles.avatar}
           />
+          <View style={styles.changeImage}>
+            <Icon
+              name="ri-camera-fill"
+              size="30"
+              color={COLORS.primary}
+              style={styles.changeIcon}
+            />
+          </View>
         </TouchableOpacity>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '600',
-            color: COLORS.black,
-            marginTop: 10,
-          }}>
-          {name}
-        </Text>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '400',
-            color: COLORS.black,
-            marginTop: 5,
-            marginBottom: 5,
-          }}>
-          {email}
-        </Text>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '400',
-            color: COLORS.black,
-            marginTop: 5,
-            marginBottom: 5,
-          }}>
-          {bidang}
-        </Text>
       </View>
     </View>
   );
@@ -104,7 +83,7 @@ const ProfileScreens = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: COLORS.lightGray}}>
+    <SafeAreaView style={{backgroundColor: COLORS.lightGray, flex: 1}}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="ri-arrow-left-s-line" size="30" color={COLORS.black} />
@@ -115,14 +94,12 @@ const ProfileScreens = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <ScrollView scrollEnabled={true}>
-        <View style={{flex: 1, height: 700}}>
+        <View style={{flex: 2}}>
           {users.map(user => {
             return (
               <Profile
                 key={user.id}
-                name={user.name}
-                email={user.email}
-                bidang={user.bidang}
+                image={user.image}
                 onPress={() => selectItem(user)}
               />
             );
@@ -135,11 +112,11 @@ const ProfileScreens = ({navigation}) => {
           <View style={styles.container}>
             <View style={styles.containerInput}>
               <View style={styles.input}>
-                <Text style={{color: COLORS.white}}>Name</Text>
+                <Text style={{color: COLORS.black}}>Name</Text>
                 <TextInput
                   placeholder="Aufa Ramadhan"
                   style={{
-                    backgroundColor: COLORS.white,
+                    backgroundColor: COLORS.lightGray,
                     borderRadius: 20,
                     padding: 10,
                     marginTop: 4,
@@ -149,11 +126,11 @@ const ProfileScreens = ({navigation}) => {
                 />
               </View>
               <View style={styles.input}>
-                <Text style={{color: COLORS.white}}>Email</Text>
+                <Text style={{color: COLORS.black}}>Email</Text>
                 <TextInput
                   placeholder="Example@gmail.com"
                   style={{
-                    backgroundColor: COLORS.white,
+                    backgroundColor: COLORS.lightGray,
                     borderRadius: 20,
                     padding: 10,
                     marginTop: 4,
@@ -163,11 +140,11 @@ const ProfileScreens = ({navigation}) => {
                 />
               </View>
               <View style={styles.input}>
-                <Text style={{color: COLORS.white}}>Bidang</Text>
+                <Text style={{color: COLORS.black}}>Bidang</Text>
                 <TextInput
                   placeholder="Front End Dev"
                   style={{
-                    backgroundColor: COLORS.white,
+                    backgroundColor: COLORS.lightGray,
                     borderRadius: 20,
                     padding: 10,
                     marginTop: 4,
@@ -195,7 +172,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   textHeader: {
-    fontSize: 24,
+    fontSize: 20,
     color: COLORS.black,
     fontWeight: '700',
   },
@@ -222,18 +199,34 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingTop: 20,
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingLeft: 25,
+    paddingRight: 25,
   },
   input: {
     flexDirection: 'column',
     marginTop: 10,
     marginBottom: 5,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.white,
     borderRadius: 20,
     paddingTop: 5,
     paddingLeft: 15,
     paddingRight: 15,
     paddingBottom: 10,
+    elevation: 6,
+  },
+  changeImage: {
+    position: 'absolute',
+    left: 110,
+    top: 110,
+    backgroundColor: COLORS.white,
+    borderRadius: 20 / 2,
+    elevation: 10,
+    width: 40,
+    height: 40,
+  },
+  changeIcon: {
+    marginVertical: 4,
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 });

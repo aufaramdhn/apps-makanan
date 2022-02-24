@@ -42,8 +42,8 @@ const Category = () => {
                 borderRadius: 50,
               }}
             />
-            <Text style={styles.labelTitle}>{item.name}</Text>
           </View>
+          <Text style={styles.labelTitle}>{item.name}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Rubik-regular',
     textAlign: 'center',
-    marginVertical: 15,
   },
   categories: {
     flexDirection: 'row',

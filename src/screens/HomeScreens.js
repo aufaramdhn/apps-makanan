@@ -39,13 +39,13 @@ const HomeScreens = ({navigation}) => {
       price,
       image,
     };
-    Axios.post('http://10.0.2.2:3004/cart', data).then(res => {
+    Axios.post('http://192.168.1.108:3004/cart', data).then(res => {
       getData();
     });
   };
 
   const getData = () => {
-    Axios.get('http://10.0.2.2:3004/food').then(res => {
+    Axios.get('http://localhost:3004/food').then(res => {
       setAllData(res.data);
     });
   };

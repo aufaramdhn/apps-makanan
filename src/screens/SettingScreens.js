@@ -6,48 +6,79 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-remix-icon';
 import COLORS from '../constants/Colors';
+import Axios from 'axios';
 
-const SettingScreens = ({navigation}) => {
+const Profile = ({name, email}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        backgroundColor: COLORS.lightGray,
+      }}>
       <View
         style={{
-          flex: 1,
-          alignItems: 'flex-start',
-          justifyContent: 'center',
+          flexDirection: 'row',
+          marginHorizontal: 30,
         }}>
+        <Image
+          source={{
+            uri: 'https://i.pinimg.com/550x/5b/b1/09/5bb109cbbaf919b7d50dd27c5532aa91.jpg',
+          }}
+          style={{width: 100, height: 100, borderRadius: 50}}
+        />
         <View
           style={{
-            flexDirection: 'row',
-            marginHorizontal: 30,
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginLeft: 10,
           }}>
-          <Image
-            source={{
-              uri: 'https://i.pinimg.com/550x/5b/b1/09/5bb109cbbaf919b7d50dd27c5532aa91.jpg',
-            }}
-            style={{width: 100, height: 100, borderRadius: 50}}
-          />
-          <View
-            style={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              marginLeft: 10,
-            }}>
-            <Text
-              style={{fontSize: 16, fontWeight: '600', color: COLORS.black}}>
-              Aufa Ramadhan
-            </Text>
-            <Text
-              style={{fontSize: 16, fontWeight: '600', color: COLORS.black}}>
-              exampleemail@gmail.com
-            </Text>
-          </View>
+          <Text style={{fontSize: 16, fontWeight: '600', color: COLORS.black}}>
+            {name}
+          </Text>
+          <Text style={{fontSize: 16, fontWeight: '600', color: COLORS.black}}>
+            {email}
+          </Text>
         </View>
       </View>
-      <View style={{flex: 2}}>
+    </View>
+  );
+};
+
+const SettingScreens = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    const data = {
+      name,
+      email,
+    };
+    Axios.get('http://10.0.2.2:3004/users').then(res => {
+      setUsers(res.data);
+    });
+  };
+  return (
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+      {users.map(user => {
+        return (
+          <Profile
+            key={user.id}
+            name={user.name}
+            email={user.email}
+            onPress={() => selectItem(user)}
+          />
+        );
+      })}
+      <View style={{flex: 2, justifyContent: 'space-between'}}>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <View style={styles.containerList}>
             <View
@@ -83,7 +114,7 @@ const SettingScreens = ({navigation}) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreens')}>
           <View style={styles.containerList}>
             <View
               style={{

@@ -19,15 +19,15 @@ const LoginScreens = ({navigation}) => {
 
   const onSubmit = async () => {
     if (email != '' && password != '') {
-      await fetch('http://10.0.2.2:3004/login', {
+      await fetch('https://reqres.in/api/login', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: email,
-          password: password,
+          email: 'eve.holt@reqres.in',
+          password: 'cityslicka',
         }),
       }).then(res => res.json());
       navigation.navigate('HomeScreens');
