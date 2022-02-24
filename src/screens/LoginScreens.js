@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import React from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import * as Animatable from 'react-native-animatable';
 import COLORS from '../constants/Colors';
 import Icon from 'react-native-remix-icon';
@@ -17,20 +17,47 @@ const LoginScreens = ({navigation}) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const onSubmit = async () => {
-    if (email != '' && password != '') {
-      await fetch('https://reqres.in/api/login', {
-        method: 'POST',
+  const handleSave = async () => {
+    const variabel = JSON.stringify({
+      email: email,
+      password: password,
+    });
+    await axios
+      .post('https://reqres.in/api/login', variabel, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: 'eve.holt@reqres.in',
-          password: 'cityslicka',
-        }),
-      }).then(res => res.json());
-      navigation.navigate('HomeScreens');
+        // data: variabel
+      })
+      .then(res => {
+        console.log(res);
+      });
+  };
+
+  const onSubmit = async () => {
+    if (email != '' && password != '') {
+      const variabel = JSON.stringify({
+        email: email,
+        password: password,
+      });
+      await axios
+        .post('https://reqres.in/api/login', variabel, {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          // data: variabel
+        })
+        .then(res => {
+          console.log(res.data.token);
+          navigation.navigate('HomeScreens');
+        })
+        .catch(e => {
+          console.log(e);
+        });
+
+      // navigation.navigate('HomeScreens');
     } else {
       Alert.alert(
         'Alert',

@@ -35,10 +35,7 @@ const DetailsScreens = ({route}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.containerFood}>
-        <Image
-          source={{uri: route.params.data.image}}
-          style={styles.foodImage}
-        />
+        <Image source={route.params.data.image} style={styles.foodImage} />
       </View>
       <View style={styles.details}>
         <View style={styles.textTitle}>

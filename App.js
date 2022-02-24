@@ -35,16 +35,16 @@ const App = () => {
           headerShown: false,
         }}
         intialRouteName={'Home'}>
-        {/* <Stack.Screen name="Splash" component={SplashScreens} />
-        <Stack.Screen name="OnboardingScreens" component={OnboardingScreens} /> */}
+        <Stack.Screen name="Splash" component={SplashScreens} />
+        <Stack.Screen name="OnboardingScreens" component={OnboardingScreens} />
         <Stack.Screen name="LoginScreens" component={LoginScreens} />
         <Stack.Screen name="RegisterScreens" component={RegisterScreens} />
         <Stack.Screen name="HomeScreens" component={Tabs} />
-        {/* <Stack.Screen name="Cart" component={CartScreens} />
+        <Stack.Screen name="Cart" component={CartScreens} />
         <Stack.Screen name="Details" component={DetailsScreens} />
         <Stack.Screen name="Profile" component={ProfileScreens} />
         <Stack.Screen name="Setting" component={SettingScreens} />
-        <Stack.Screen name="Whislist" component={WhislistScreens} /> */}
+        <Stack.Screen name="Whislist" component={WhislistScreens} />
         {/* <Stack.Screen name="Component1" component={Component1} /> */}
         {/* <Stack.Screen name="Component2" component={Component2} /> */}
         {/* <Stack.Screen name="Component3" component={Component3} /> */}

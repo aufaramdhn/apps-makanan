@@ -19,36 +19,75 @@ import Axios from 'axios';
 const height = Dimensions.get('screen').height;
 
 const HomeScreens = ({navigation}) => {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [image, setImage] = useState('');
-  const [allData, setAllData] = useState({});
+  // const [name, setName] = useState('');
+  // const [price, setPrice] = useState('');
+  // const [image, setImage] = useState('');
+  // const [allData, setAllData] = useState({});
   const [loading, isLoading] = useState(false);
 
-  useEffect(() => {
-    getData();
-    isLoading(true);
-    setTimeout(() => {
-      isLoading(false);
-    }, 3000);
-  }, []);
+  const Data = [
+    {
+      id: '1',
+      name: 'Burger',
+      price: '$8.00',
+      image: require('../../assets/image/burger.png'),
+    },
+    {
+      id: '2',
+      name: 'Pizza',
+      price: '$8.00',
+      image: require('../../assets/image/pizza.png'),
+    },
+    {
+      id: '3',
+      name: 'Kebab',
+      price: '$8.00',
+      image: require('../../assets/image/kebab.png'),
+    },
+    {
+      id: '4',
+      name: 'Chicken',
+      price: '$8.00',
+      image: require('../../assets/image/chicken.png'),
+    },
+    {
+      id: '5',
+      name: 'Burger',
+      price: '$8.00',
+      image: require('../../assets/image/burger.png'),
+    },
+    {
+      id: '6',
+      name: 'Burger',
+      price: '$8.00',
+      image: require('../../assets/image/burger.png'),
+    },
+  ];
 
-  const AddCart = () => {
-    const data = {
-      name,
-      price,
-      image,
-    };
-    Axios.post('http://192.168.1.108:3004/cart', data).then(res => {
-      getData();
-    });
-  };
+  // useEffect(() => {
+  //   getData();
+  //   isLoading(true);
+  //   setTimeout(() => {
+  //     isLoading(false);
+  //   }, 3000);
+  // }, []);
 
-  const getData = () => {
-    Axios.get('http://localhost:3004/food').then(res => {
-      setAllData(res.data);
-    });
-  };
+  // const AddCart = () => {
+  //   const data = {
+  //     name,
+  //     price,
+  //     image,
+  //   };
+  //   Axios.post('http://10.0.2.2:3004/cart', data).then(res => {
+  //     getData();
+  //   });
+  // };
+
+  // const getData = () => {
+  //   Axios.get('http://10.0.2.2:3004/food').then(res => {
+  //     setAllData(res.data);
+  //   });
+  // };
 
   // const getData = () => {
   //   Axios.get('http://10.0.2.2:3004/food').then(res => {
@@ -63,8 +102,13 @@ const HomeScreens = ({navigation}) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('Details', {data: item})}>
             <Image
-              style={{width: 150, height: 150, borderRadius: 50 / 2}}
-              source={{uri: item.image}}
+              style={{
+                width: 150,
+                height: 150,
+                borderRadius: 50 / 2,
+                alignSelf: 'center',
+              }}
+              source={item.image}
             />
             <View style={styles.containerText}>
               <Text style={styles.textTitle}>{item.name}</Text>
@@ -74,7 +118,6 @@ const HomeScreens = ({navigation}) => {
                 size="38"
                 color="#6b45bc"
                 style={styles.iconAdd}
-                onPress={AddCart}
               />
             </View>
           </TouchableOpacity>
@@ -103,8 +146,8 @@ const HomeScreens = ({navigation}) => {
             showsVerticalScrollIndicator={false}
             numColumns={2}
             keyExtractor={item => item.id}
-            contentContainerStyle={{height: height + 120}}
-            data={allData}
+            contentContainerStyle={{height: height}}
+            data={Data}
             renderItem={({item}) => <CardPopuler item={item} />}
             style={{height: 300}}
           />
@@ -119,11 +162,12 @@ export default HomeScreens;
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#f7f7f7',
+    paddingLeft: 20,
+    paddingRight: 20,
     flex: 1,
   },
   container: {
-    marginRight: 30,
-    marginLeft: 30,
+    flex: 1,
   },
   textPopular: {
     marginTop: 15,
@@ -134,6 +178,7 @@ const styles = StyleSheet.create({
   },
   backContainer: {
     paddingBottom: 20,
+    flex: 1,
   },
   containerFood: {
     backgroundColor: COLORS.lightGray,
